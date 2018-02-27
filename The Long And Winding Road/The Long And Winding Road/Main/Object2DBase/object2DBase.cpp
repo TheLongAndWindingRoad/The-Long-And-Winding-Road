@@ -1,11 +1,21 @@
 #include"object2DBase.h"
 
-Object2DBase::Object2DBase()
+bool Object2DBase::Initalize()
+{
+	return true;
+}
+
+void Object2DBase::Finalize()
 {
 
 }
 
-Object2DBase::~Object2DBase()
+void Object2DBase::Update()
+{
+
+}
+
+void Object2DBase::Draw()
 {
 
 }

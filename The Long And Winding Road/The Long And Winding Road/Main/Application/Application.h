@@ -14,12 +14,4 @@ private:
 
 };
 
-Application::Application()
-{
-}
-
-Application::~Application()
-{
-}
-
 #endif
