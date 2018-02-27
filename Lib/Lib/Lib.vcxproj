@@ -20,32 +20,32 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{47B8BEC8-2E8F-41AF-BBF5-D006621B1A2A}</ProjectGuid>
-    <RootNamespace>TheLongAndWindingRoad</RootNamespace>
+    <ProjectGuid>{25C058BD-612D-482D-BA46-96B6055807A2}</ProjectGuid>
+    <RootNamespace>Lib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -75,24 +75,22 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\fatey\Desktop\The-Long-And-Winding-Road\Lib\Lib\Library;$(ProjectDir);C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\fatey\Desktop\The-Long-And-Winding-Road\Lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\fatey\Desktop\The-Long-And-Winding-Road\Lib\Lib\Library;$(ProjectDir);C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\fatey\Desktop\The-Long-And-Winding-Road\Lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -101,11 +99,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -114,36 +116,32 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main\Application\Application.cpp" />
-    <ClCompile Include="Main\Application\Scene\ClearScene\ClearScene.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\Enemy\Enemy.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\GameBackGround\GameBackGround.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\ObjectManager.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\Player\Player.cpp" />
-    <ClCompile Include="Main\Application\Scene\OverScene\OverScene.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleScene.cpp" />
-    <ClCompile Include="Main\Main.cpp" />
-    <ClCompile Include="Main\Object2DBase\object2DBase.cpp" />
+    <ClCompile Include="Library\DirectX9\DirectGraphics\DirectGraphics.cpp" />
+    <ClCompile Include="Library\DirectX9\ObjectBase\ObjectBase.cpp" />
+    <ClCompile Include="Library\DirectX9\SceneManager\SceaneBase\SceneBase.cpp" />
+    <ClCompile Include="Library\DirectX9\SceneManager\SceneManager.cpp" />
+    <ClCompile Include="Library\DirectX9\TextureManager\TextureManager.cpp" />
+    <ClCompile Include="Library\Windows\Windows.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Main\Application\Application.h" />
-    <ClInclude Include="Main\Application\Scene\ClearScene\ClearScene.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\Enemy\Enemy.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\GameBackGround\GameBackGround.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\ObjectManager.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\Player\Player.h" />
-    <ClInclude Include="Main\Application\Scene\OverScene\OverScene.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleScene.h" />
-    <ClInclude Include="Main\Object2DBase\object2DBase.h" />
+    <ClInclude Include="Library\DirectX9\DirectGraphics\DirectGraphics.h" />
+    <ClInclude Include="Library\DirectX9\macro.h" />
+    <ClInclude Include="Library\DirectX9\ObjectBase\ObjectBase.h" />
+    <ClInclude Include="Library\DirectX9\SceneManager\SceaneBase\SceneBase.h" />
+    <ClInclude Include="Library\DirectX9\SceneManager\SceneManager.h" />
+    <ClInclude Include="Library\DirectX9\TextureManager\TextureManager.h" />
+    <ClInclude Include="Library\Windows\Windows.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
