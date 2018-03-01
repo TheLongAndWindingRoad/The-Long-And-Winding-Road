@@ -58,6 +58,11 @@ private:
 	MouseDevice* m_pMouseDevice;
 	SceneManager* m_pSceneManager;
 	TextureManager* m_pTextureManager;
+
+	ClearScene* m_pClearScene;
+	GameScene*	m_pGameScene;
+	OverScene*	m_pOverScene;
+	TitleScene*	m_pTitleScene;
 };
 
 #endif

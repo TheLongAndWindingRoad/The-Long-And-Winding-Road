@@ -1,5 +1,9 @@
 #include"Application.h"
 #include"DirectX9\macro.h"
+#include"Main\Application\Scene\ClearScene\ClearScene.h"
+#include"Main\Application\Scene\GameScene\GameScene.h"
+#include"Main\Application\Scene\OverScene\OverScene.h"
+#include"Main\Application\Scene\TitleScene\TitleScene.h"
 
 /* Window‚Ì‘å‚«‚³ */
 const int Application::m_WindowWidth = 1280;
