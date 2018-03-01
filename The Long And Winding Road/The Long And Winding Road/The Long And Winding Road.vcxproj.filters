@@ -48,9 +48,6 @@
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\GameBackGround\GameBackGround.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="UIManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Object2DBase\object2DBase.h">
@@ -81,9 +78,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\GameBackGround\GameBackGround.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="UIManager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
