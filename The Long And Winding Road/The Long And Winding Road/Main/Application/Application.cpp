@@ -23,7 +23,7 @@ Application::~Application()
 	Finalize();
 }
 
-bool Application::Initalize()
+bool Application::Initialize()
 {
 	if (!CreateMainWindow())
 	{
@@ -89,7 +89,7 @@ void Application::Run()
 bool Application::CreateMainWindow()
 {
 	m_pMainWindow = new Window();
-	if (!m_pMainWindow->Initalize("The-Long-And-Winding-Road", m_WindowWidth, m_WindowHeight))
+	if (!m_pMainWindow->Initialize("The-Long-And-Winding-Road", m_WindowWidth, m_WindowHeight))
 	{
 		MessageBox(0, "メインウィンドウの作成に失敗しました", NULL, MB_OK);
 		SafeDelete(m_pMainWindow);
@@ -101,8 +101,8 @@ bool Application::CreateMainWindow()
 
 bool Application::CreateDirectGraphics()
 {
-	DirectGraphics::CreateInstance(m_pMainWindow->GetWndHandle(), m_WindowWidth,m_WindowHeight,false);
-	if (!DirectGraphics::GetInstance()->Initalize())
+	DirectGraphics::CreateInstance(m_pMainWindow->GetWndHandle(), m_WindowWidth,m_WindowHeight,true);
+	if (!DirectGraphics::GetInstance()->Initialize())
 	{
 		MessageBox(0, "ダイレクトグラフィックの作成に失敗しました", NULL, MB_OK);
 		SafeDelete(m_pDirectGraphics);
@@ -115,7 +115,7 @@ bool Application::CreateDirectGraphics()
 bool Application::CreateMouseDevice()
 {
 	MouseDevice::CreatepInstance(m_pMainWindow->GetWndHandle());
-	if (!MouseDevice::GetpInstance()->Initalize())
+	if (!MouseDevice::GetpInstance()->Initialize())
 	{
 		MessageBox(0, "マウスデバイスの作成に失敗しました", NULL, MB_OK);
 		SafeDelete(m_pMouseDevice);
@@ -128,11 +128,14 @@ bool Application::CreateMouseDevice()
 bool Application::CreateSceneManager()
 {
 	m_pSceneManager = new SceneManager();
-	if (!m_pSceneManager->Initalize())
+	if (!m_pSceneManager->Initialize())
 	{
 		SafeDelete(m_pSceneManager);
 		return false;
 	}
+
+	m_pGameScene = new GameScene(GAME_SCENE_ID);
+	m_pSceneManager->AddScene(m_pGameScene);
 
 	return true;
 }

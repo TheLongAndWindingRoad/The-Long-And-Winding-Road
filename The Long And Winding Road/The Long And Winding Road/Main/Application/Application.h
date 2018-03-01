@@ -15,9 +15,18 @@ class OverScene;
 class Application
 {
 public:
+	enum SCENE_ID
+	{
+		TITLE_SCENE_ID,
+		GAME_SCENE_ID,
+		CLEAR_SCENE_ID,
+		OVER_SCENE_ID,
+		END_SCENE_ID
+	};
+	
 	Application();
 	~Application();
-	bool Initalize();
+	bool Initialize();
 	void Finalize();
 	void Run();
 	

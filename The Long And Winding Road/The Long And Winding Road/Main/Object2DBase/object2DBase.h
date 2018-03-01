@@ -8,7 +8,7 @@ class Object2DBase:public ObjectBase
 public:
 	Object2DBase() {};
 	virtual ~Object2DBase() {};
-	virtual bool Initalize();
+	virtual bool Initialize();
 	virtual void Finalize();
 	virtual void Update();
 	virtual void Draw();

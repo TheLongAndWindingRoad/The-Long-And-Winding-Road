@@ -34,7 +34,7 @@ Window::~Window()
 	Finalize();
 }
 
-bool Window::Initalize(LPCTSTR pWindowName, float windowWidth, float windowHeight)
+bool Window::Initialize(LPCTSTR pWindowName, float windowWidth, float windowHeight)
 {
 	//WindowÉNÉâÉXÇÃê›íË
 	WNDCLASSEX Wndclass;

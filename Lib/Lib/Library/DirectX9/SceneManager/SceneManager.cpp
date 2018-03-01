@@ -20,7 +20,7 @@ SceneManager::~SceneManager()
 	}
 }
 
-bool SceneManager::Initalize()
+bool SceneManager::Initialize()
 {
 	/* ƒRƒ“ƒeƒi‚É‰½‚©‚ð‹l‚ß‚Ä‚¨‚­ */
 	SceneBase* pEmptyScene = new SceneBase(m_EmptySceneID);

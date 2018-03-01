@@ -15,7 +15,7 @@ public:
 	~SceneManager();
 
 	/* ‰Šú‰»ŠÖ” */
-	bool Initalize();
+	bool Initialize();
 
 	/* I—¹ŠÖ” */
 	void Finalize();

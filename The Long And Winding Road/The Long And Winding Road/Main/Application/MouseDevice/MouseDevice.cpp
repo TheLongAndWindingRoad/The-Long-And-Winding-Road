@@ -35,7 +35,7 @@ void MouseDevice::InitDinput()
 	}
 }
 
-bool MouseDevice::Initalize()
+bool MouseDevice::Initialize()
 {
 	/* ƒ}ƒEƒX‚Ì‰Šú‰» */
 	if (FAILED(m_pDinput->CreateDevice(

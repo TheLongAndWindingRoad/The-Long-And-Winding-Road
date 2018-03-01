@@ -20,7 +20,7 @@ public:
 	void InitDinput();
 
 	/* 初期化関数 */
-	bool Initalize();
+	bool Initialize();
 
 	/* マウスのチェック関数 */
 	void MouseCheck(MOUSEKIND* Mouse);
