@@ -10,7 +10,7 @@ public:
 
 	GameBackGround();
 	virtual ~GameBackGround();
-	virtual bool Initalize();
+	virtual bool Initialize();
 	virtual void Finalize();
 	virtual void Update();
 	virtual void Draw();

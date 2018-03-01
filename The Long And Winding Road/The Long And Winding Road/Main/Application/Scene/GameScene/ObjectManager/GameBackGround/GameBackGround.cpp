@@ -17,7 +17,7 @@ GameBackGround::~GameBackGround()
 {
 }
 
-bool GameBackGround::Initalize()
+bool GameBackGround::Initialize()
 {
 
 	CUSTOMVERTEX BackGround1[]
