@@ -92,6 +92,7 @@ bool MouseDevice::Initalize()
 
 void MouseDevice::MouseCheck(MOUSEKIND* Mouse)
 {
+	/* ‚±‚±‚ÉGetCurrtsorPos‚àì‚Á‚Ä‚¨‚­ */
 	DIMOUSESTATE MouseState;
 
 	m_pDIMouse->Acquire();
@@ -126,6 +127,7 @@ void MouseDevice::MouseCheck(MOUSEKIND* Mouse)
 			Mouse->ly = MouseState.lY;
 		}
 
+		/* ƒzƒC[ƒ‹ */
 		if (MouseState.lZ)
 		{
 			Mouse->lz = MouseState.lZ;

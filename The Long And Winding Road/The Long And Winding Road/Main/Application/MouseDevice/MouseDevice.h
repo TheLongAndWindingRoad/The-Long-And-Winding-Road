@@ -33,6 +33,9 @@ public:
 
 	/* インスタンスを返す */
 	static MouseDevice*	GetpInstance() { return pInstance; }
+
+	/* マウスの座標を返す */
+	inline POINT GetMousePos() { GetCursorPos(&m_po); return m_po; }
 private:
 	/* 隠しコンストラクタ */
 	MouseDevice(HWND hWnd);
@@ -46,6 +49,8 @@ private:
 	LPDIRECTINPUTDEVICE8 m_pDIMouse = NULL;
 
 	HWND m_hWnd;
+
+	POINT m_po;
 };
 
 

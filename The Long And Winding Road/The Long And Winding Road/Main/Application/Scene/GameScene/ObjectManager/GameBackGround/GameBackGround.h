@@ -51,6 +51,7 @@ private:
 	int map2[Map_Height][Map_Width];
 	int map3[Map_Height][Map_Width];
 
+	/* ‚±‚±‚ğ10ŒÂ‚É‘‚â‚· */
 	/* Maptip‚©‚ç“Ç‚İ‚ñ‚¾ƒf[ƒ^‚ğ‚±‚±‚ÉŠi”[‚·‚é */
 	int Initmap1[Map_Height][Map_Width];
 	int Initmap2[Map_Height][Map_Width];
