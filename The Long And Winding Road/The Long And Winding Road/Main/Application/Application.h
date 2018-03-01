@@ -63,6 +63,7 @@ private:
 	/* クラス */
 
 	Window* m_pMainWindow;
+	/* シングルトン化させているのでポインタ変数を作る必要はない */
 	DirectGraphics* m_pDirectGraphics;
 	MouseDevice* m_pMouseDevice;
 	SceneManager* m_pSceneManager;

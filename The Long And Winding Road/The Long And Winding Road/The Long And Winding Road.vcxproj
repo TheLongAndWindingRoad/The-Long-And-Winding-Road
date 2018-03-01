@@ -125,6 +125,7 @@
     <ClCompile Include="Main\Application\MouseDevice\MouseDevice.cpp" />
     <ClCompile Include="Main\Application\Scene\ClearScene\ClearScene.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\Animation\Animation.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\Enemy\Enemy.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\GameBackGround\GameBackGround.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\ObjectManager.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Main\Application\MouseDevice\MouseDevice.h" />
     <ClInclude Include="Main\Application\Scene\ClearScene\ClearScene.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\Animation\Animation.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\Enemy\Enemy.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\GameBackGround\GameBackGround.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\ObjectManager.h" />

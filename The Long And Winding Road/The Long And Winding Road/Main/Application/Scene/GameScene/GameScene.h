@@ -14,8 +14,13 @@ public:
 	virtual void Update();
 
 private:
-	ObjectManager*	m_p;
-
+	ObjectManager*	m_pObjectManager;
+	/* •`‰æ‰Šú‰»F */
+	int r = 0;
+	int g = 0;
+	int b = 0;
+	/* State‚ğFinal‚É‚Á‚Ä‚¢‚¯‚é‚æ‚¤‚É */
+	bool IsClear = false;
 };
 
 #endif

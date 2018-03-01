@@ -146,3 +146,19 @@ bool Application::CreateTextureManager()
 
 	return true;
 }
+
+void Application::DestroyMainWindow() {
+	if (m_pMainWindow != nullptr)
+	{
+		m_pMainWindow->Finalize();
+		SafeDelete(m_pMainWindow);
+	}
+}
+
+void Application::DestroyDirectGraphics()
+{
+	if (m_pDirectGraphics != nullptr)
+	{
+		
+	}
+}
