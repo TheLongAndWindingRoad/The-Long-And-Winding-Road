@@ -79,7 +79,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\fatey\Desktop\The-Long-And-Winding-Road\Lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Lib.lib;dinput8.lib;d3d9.lib;d3dx9.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -91,7 +91,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\fatey\Desktop\The-Long-And-Winding-Road\Lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Lib.lib;dinput8.lib;d3d9.lib;d3dx9.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,12 +122,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main\Application\Application.cpp" />
+    <ClCompile Include="Main\Application\MouseDevice\MouseDevice.cpp" />
     <ClCompile Include="Main\Application\Scene\ClearScene\ClearScene.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\Enemy\Enemy.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\GameBackGround\GameBackGround.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\ObjectManager.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\Player\Player.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\CreateRoaad\CreateRoad.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\Number_of_attacks\Number_of_attacks.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\UIManager.cpp" />
     <ClCompile Include="Main\Application\Scene\OverScene\OverScene.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleScene.cpp" />
     <ClCompile Include="Main\Main.cpp" />
@@ -135,12 +139,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h" />
+    <ClInclude Include="Main\Application\MouseDevice\MouseDevice.h" />
     <ClInclude Include="Main\Application\Scene\ClearScene\ClearScene.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\Enemy\Enemy.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\GameBackGround\GameBackGround.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\ObjectManager.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\Player\Player.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\CreateRoaad\CreateRoaad.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\Number_of_attacks\Number_of_attacks.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\UIManager.h" />
     <ClInclude Include="Main\Application\Scene\OverScene\OverScene.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleScene.h" />
     <ClInclude Include="Main\Object2DBase\object2DBase.h" />
