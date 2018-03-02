@@ -40,7 +40,6 @@ private:
 	void InitD3Dpp();
 
 	/* 隠しコンストラクタ */
-	DirectGraphics() {};
 	DirectGraphics(HWND hWnd,float h,float w,bool b);
 	/* DirectGraphics 唯一のインスタンス */
 	static DirectGraphics* pInstance;

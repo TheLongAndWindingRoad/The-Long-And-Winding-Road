@@ -4,6 +4,9 @@
 #include"Main\Application\Scene\GameScene\GameScene.h"
 #include"Main\Application\Scene\OverScene\OverScene.h"
 #include"Main\Application\Scene\TitleScene\TitleScene.h"
+#include"DirectX9\DirectGraphics\DirectGraphics.h"
+#include"MouseDevice\MouseDevice.h"
+#include"DirectX9\TextureManager\TextureManager.h"
 
 /* Windowの大きさ */
 const int Application::m_WindowWidth = 1280;
@@ -11,10 +14,7 @@ const int Application::m_WindowHeight = 720;
 
 Application::Application():
 	m_pMainWindow(nullptr),
-	m_pDirectGraphics(nullptr),
-	m_pMouseDevice(nullptr),
-	m_pSceneManager(nullptr),
-	m_pTextureManager(nullptr)
+	m_pSceneManager(nullptr)
 {
 }
 
@@ -101,11 +101,12 @@ bool Application::CreateMainWindow()
 
 bool Application::CreateDirectGraphics()
 {
-	DirectGraphics::CreateInstance(m_pMainWindow->GetWndHandle(), m_WindowWidth,m_WindowHeight,true);
+	/*全画面表示ができない状態になっている */
+
+	DirectGraphics::CreateInstance(m_pMainWindow->GetWndHandle(), m_WindowWidth,m_WindowHeight,false);
 	if (!DirectGraphics::GetInstance()->Initialize())
 	{
-		MessageBox(0, "ダイレクトグラフィックの作成に失敗しました", NULL, MB_OK);
-		SafeDelete(m_pDirectGraphics);
+		//MessageBox(0, "ダイレクトグラフィックの作成に失敗しました", NULL, MB_OK);
 		return false;
 	}
 
@@ -115,10 +116,10 @@ bool Application::CreateDirectGraphics()
 bool Application::CreateMouseDevice()
 {
 	MouseDevice::CreatepInstance(m_pMainWindow->GetWndHandle());
+	MouseDevice::GetpInstance()->InitDinput();
 	if (!MouseDevice::GetpInstance()->Initialize())
 	{
 		MessageBox(0, "マウスデバイスの作成に失敗しました", NULL, MB_OK);
-		SafeDelete(m_pMouseDevice);
 		return false;
 	}
 
@@ -134,8 +135,19 @@ bool Application::CreateSceneManager()
 		return false;
 	}
 
+	m_pTitleScene = new TitleScene(TITLE_SCENE_ID);
+	m_pSceneManager->AddScene(m_pTitleScene);
+
 	m_pGameScene = new GameScene(GAME_SCENE_ID);
 	m_pSceneManager->AddScene(m_pGameScene);
+
+	m_pClearScene = new ClearScene(CLEAR_SCENE_ID);
+	m_pSceneManager->AddScene(m_pClearScene);
+
+	m_pOverScene = new OverScene(OVER_SCENE_ID);
+	m_pSceneManager->AddScene(m_pOverScene);
+
+	m_pSceneManager->SetEntryScene(m_pTitleScene);
 
 	return true;
 }
@@ -157,8 +169,46 @@ void Application::DestroyMainWindow() {
 
 void Application::DestroyDirectGraphics()
 {
-	if (m_pDirectGraphics != nullptr)
+	if (DirectGraphics::GetInstance() != nullptr) 
 	{
-		
+		DirectGraphics::GetInstance()->Finalize();
+	}
+}
+
+void Application::DestroyMouseDevice()
+{
+	if (MouseDevice::GetpInstance() != nullptr)
+	{
+		MouseDevice::GetpInstance()->DestroyMouseDevice();
+	}
+}
+
+void Application::DestroySceneManager()
+{
+	if (m_pSceneManager != nullptr)
+	{
+		/* 生成したのと逆の順で破棄する */
+		m_pSceneManager->DeleteScene(m_pTitleScene);
+		SafeDelete(m_pTitleScene);
+
+		m_pSceneManager->DeleteScene(m_pGameScene);
+		SafeDelete(m_pGameScene);
+
+		m_pSceneManager->DeleteScene(m_pClearScene);
+		SafeDelete(m_pClearScene);
+
+		m_pSceneManager->DeleteScene(m_pOverScene);
+		SafeDelete(m_pOverScene);
+
+		m_pSceneManager->Finalize();
+		SafeDelete(m_pSceneManager);
+	}
+}
+
+void Application::DestroyTextureManager()
+{
+	if (TextureManager::GetInstance() != nullptr)
+	{
+		TextureManager::GetInstance()->DestroyInstance();
 	}
 }

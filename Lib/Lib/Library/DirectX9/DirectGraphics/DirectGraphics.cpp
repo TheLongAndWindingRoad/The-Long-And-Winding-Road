@@ -8,7 +8,6 @@ DirectGraphics* DirectGraphics::pInstance = NULL;
 
 DirectGraphics::DirectGraphics(HWND hWnd,float h,float w,bool b):m_hWnd(hWnd),m_pD3Device(nullptr),m_pDirect3D(nullptr),m_gHeight(h),m_gWidth(w),m_fullscreen(b)
 {
-	Initialize();
 }
 
 DirectGraphics::~DirectGraphics()
@@ -47,26 +46,28 @@ void DirectGraphics::InitD3Dpp()
 	m_D3dppwnd.Windowed = TRUE;
 
 	ZeroMemory(&m_D3dppfull, sizeof(D3DPRESENT_PARAMETERS));
-	m_d3dppFull.BackBufferWidth = m_gWidth;			// 幅
-	m_d3dppFull.BackBufferHeight = m_gHeight;			// 高さ
-	m_d3dppFull.BackBufferFormat = m_D3DdisplayMode.Format;
-	m_d3dppFull.BackBufferCount = 1;				// バックバッファの数
-	m_d3dppFull.SwapEffect = D3DSWAPEFFECT_DISCARD;
-	m_d3dppFull.hDeviceWindow = m_hWnd;			// 表示目標ウィンドウ(貼り付け対象のウィンドウハンドルを入れてください)
-	m_d3dppFull.Windowed = FALSE;			// フルスクリーンを指定
-	m_d3dppFull.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT;
+	m_D3dppfull.BackBufferWidth = m_gWidth;			// 幅
+	m_D3dppfull.BackBufferHeight = m_gHeight;			// 高さ
+	m_D3dppfull.BackBufferFormat = m_D3DdisplayMode.Format;
+	m_D3dppfull.BackBufferCount = 1;				// バックバッファの数
+	m_D3dppfull.SwapEffect = D3DSWAPEFFECT_DISCARD;
+	m_D3dppfull.hDeviceWindow = m_hWnd;			// 表示目標ウィンドウ(貼り付け対象のウィンドウハンドルを入れてください)
+	m_D3dppfull.Windowed = FALSE;			// フルスクリーンを指定
+	m_D3dppfull.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT;
 
-	m_D3dpp = m_fullscreen ? m_d3dppFull : m_D3dppwnd;
+	m_D3dpp = m_fullscreen ? m_D3dppfull : m_D3dppwnd;
 }
 
 bool DirectGraphics::Initialize()
 {
-	m_pDirect3D = Direct3DCreate9(D3D_SDK_VERSION);
-	m_pDirect3D->GetAdapterDisplayMode(D3DADAPTER_DEFAULT, &m_D3DdisplayMode);
-
-	if (m_pDirect3D == nullptr)
+	if (FAILED(m_pDirect3D = Direct3DCreate9(D3D_SDK_VERSION)))
 	{
-		return false;
+		MessageBox(0, "DirectXオブジェクトの生成に失敗しました", NULL, MB_OK);
+	}
+
+	if (FAILED(m_pDirect3D->GetAdapterDisplayMode(D3DADAPTER_DEFAULT, &m_D3DdisplayMode)))
+	{
+		MessageBox(0, "DisplayModeの取得に失敗しました", NULL, MB_OK);
 	}
 
 	InitD3Dpp();
@@ -87,6 +88,7 @@ bool DirectGraphics::Initialize()
 			D3DCREATE_HARDWARE_VERTEXPROCESSING,
 			&m_D3dpp, &m_pD3Device)))
 		{
+			MessageBox(0, "DirectXのデバイス生成に失敗しました", NULL, MB_OK);
 			return false;
 		}
 	}
@@ -98,7 +100,10 @@ bool DirectGraphics::Initialize()
 
 void DirectGraphics::Finalize()
 {
-	SafeDelete(pInstance);
+	if (pInstance != nullptr)
+	{
+		SafeDelete(pInstance);
+	}
 	SafeRelease(m_pD3Device);
 	SafeRelease(m_pDirect3D);
 }

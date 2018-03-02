@@ -33,7 +33,7 @@ bool ObjectManager::Initialize()
 {
 	for (auto itr = m_pObjectManagers.begin(); itr != m_pObjectManagers.end(); itr++)
 	{
-		if (!(*itr)->Initalize())
+		if (!(*itr)->Initialize())
 		{
 			return false;
 		}

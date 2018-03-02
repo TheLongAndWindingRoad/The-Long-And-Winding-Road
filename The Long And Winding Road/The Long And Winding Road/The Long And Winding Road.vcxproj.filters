@@ -63,6 +63,15 @@
     <ClCompile Include="Main\Application\Scene\GameScene\Animation\Animation.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ClearScene\ClearBackGround\ClearBackGround.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\OverScene\OverBackGround\OverBackGround.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleBackGround\TitleBackGround.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Object2DBase\object2DBase.h">
@@ -108,6 +117,15 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\Animation\Animation.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ClearScene\ClearBackGround\ClearBackGround.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\OverScene\OverBackGround\OverBackGround.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleBackGround\TitleBackGround.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

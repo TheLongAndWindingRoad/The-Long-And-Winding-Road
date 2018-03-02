@@ -7,5 +7,14 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _szStr,
 {
 	::ImmDisableIME(NULL);	// IMEÇÕêÿÇ¡ÇƒÇ®Ç≠.
 
+	Application App;
+	if (!App.Initialize())
+	{
+		return -1;
+	}
+
+	App.Run();
+	App.Finalize();
+
 	return 0;
 }
