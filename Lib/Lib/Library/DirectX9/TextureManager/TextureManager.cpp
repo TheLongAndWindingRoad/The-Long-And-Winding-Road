@@ -31,11 +31,11 @@ void TextureManager::DestroyInstance()
 }
 
 //Objectは自分のIDを持つこと
-void TextureManager::LoadTexture(LPCTSTR fname, int* Texture)
+bool TextureManager::LoadTexture(LPCTSTR fname, int* Texture)
 {
 	LPDIRECT3DTEXTURE9 tex;
 
-	D3DXCreateTextureFromFileEx(
+	if (FAILED(D3DXCreateTextureFromFileEx(
 		DirectGraphics::GetInstance()->GetDevice(),
 		fname,              // ファイル名
 		0,
@@ -49,21 +49,26 @@ void TextureManager::LoadTexture(LPCTSTR fname, int* Texture)
 		D3DCOLOR_ARGB(255, 0, 255, 0),  //緑を透過
 		NULL,
 		NULL,
-		&tex);
+		&tex)))
+	{
+		return false;
+	}
 
 	/* インデックス番号を返している */
 	*Texture = m_pTexture.size();
 	m_pTexture.push_back(tex);
+
+	return true;
 }
 
-void TextureManager::SetTexture(int tex)
+void TextureManager::SetTexture(int* tex)
 {
 	DirectGraphics::GetInstance()->GetDevice()->SetTexture(0,GetTexture(tex));
 }
 
-LPDIRECT3DTEXTURE9 TextureManager::GetTexture(int tex)
+LPDIRECT3DTEXTURE9 TextureManager::GetTexture(int* tex)
 {
-	return m_pTexture[tex];
+	return m_pTexture[*tex];
 }
 
 void TextureManager::Release()

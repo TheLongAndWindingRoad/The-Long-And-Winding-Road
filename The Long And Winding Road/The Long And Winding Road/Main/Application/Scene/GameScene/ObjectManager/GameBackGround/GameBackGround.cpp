@@ -376,7 +376,7 @@ void GameBackGround::MapLoad(const char* mapdata,int number)
 
 void GameBackGround::BackGroundDraw()
 {
-	TextureManager::GetInstance()->SetTexture(m_BackGroundTexture);
+	TextureManager::GetInstance()->SetTexture(&m_BackGroundTexture);
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_BackGround1, sizeof(CUSTOMVERTEX));
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_BackGround2, sizeof(CUSTOMVERTEX));
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_BackGround3, sizeof(CUSTOMVERTEX));
@@ -384,7 +384,7 @@ void GameBackGround::BackGroundDraw()
 
 void GameBackGround::GrassDraw()
 {
-	TextureManager::GetInstance()->SetTexture(m_GrassTexture);
+	TextureManager::GetInstance()->SetTexture(&m_GrassTexture);
 
 	for (int i = 0; i < Map_Width; i++)
 	{

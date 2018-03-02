@@ -30,7 +30,11 @@ bool TitleBackGround::Initialize()
 
 
 	/* ファイルの名前を入れる */
-	TextureManager::GetInstance()->LoadTexture("Texture//window.png", &m_TitleTexture);
+	if (!TextureManager::GetInstance()->LoadTexture("Texture/window.png", &m_TitleTexture))
+	{
+		MessageBox(0, "画像の読み込みに失敗しました", NULL, MB_OK);
+		return false;
+	}
 
 	return true;
 }
@@ -46,6 +50,6 @@ void TitleBackGround::Update()
 
 void TitleBackGround::Draw()
 {
-	TextureManager::GetInstance()->SetTexture(m_TitleTexture);
+	TextureManager::GetInstance()->SetTexture(&m_TitleTexture);
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_Title, sizeof(CUSTOMVERTEX));
 }

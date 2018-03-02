@@ -48,6 +48,6 @@ void ClearBackGround::Update()
 
 void ClearBackGround::Draw()
 {
-	TextureManager::GetInstance()->SetTexture(m_ClearTexture);
+	TextureManager::GetInstance()->SetTexture(&m_ClearTexture);
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_Clear, sizeof(CUSTOMVERTEX));
 }
