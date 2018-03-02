@@ -33,7 +33,7 @@ void TextureManager::DestroyInstance()
 //Object‚ÍŽ©•ª‚ÌID‚ðŽ‚Â‚±‚Æ
 bool TextureManager::LoadTexture(LPCTSTR fname, int* Texture)
 {
-	LPDIRECT3DTEXTURE9 tex;
+	LPDIRECT3DTEXTURE9 tex = NULL;
 
 	if (FAILED(D3DXCreateTextureFromFileEx(
 		DirectGraphics::GetInstance()->GetDevice(),

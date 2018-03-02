@@ -15,9 +15,9 @@ public:
 	virtual void Update();
 private:
 	TitleBackGround* m_pTitleBackGround;
-	int r = 0;
-	int g = 0;
-	int b = 0;
+	const int r = 100;
+	const int g =   0;
+	const int b = 100;
 };
 
 #endif

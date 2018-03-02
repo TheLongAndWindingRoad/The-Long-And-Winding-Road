@@ -121,9 +121,9 @@ void DirectGraphics::Finalize()
 /* デフォルトは0,0,0で真っ白 */
 void DirectGraphics::BeginScene(int r ,int g, int b)
 {
-	m_pD3Device->SetFVF(D3DFVF_CUSTOMVERTEX);
 	m_pD3Device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(r, g, b), 1.0f, 0);
 	m_pD3Device->BeginScene();
+	m_pD3Device->SetFVF(D3DFVF_CUSTOMVERTEX);
 }
 
 void DirectGraphics::EndScene()
