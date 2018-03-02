@@ -18,9 +18,9 @@ bool TitleBackGround::Initialize()
 	CUSTOMVERTEX Title[]
 	{
 		{ 0.f,	0.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
-		{ 0.f,	w_Width, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
-		{ w_Height,	w_Width, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
-		{ w_Height,	0.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
+		{ w_Width,	0.f, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
+		{ w_Width,	w_Height, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
+		{ 0.f,	w_Height, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
 	};
 
 	for (int i = 0; i < 4; i++)

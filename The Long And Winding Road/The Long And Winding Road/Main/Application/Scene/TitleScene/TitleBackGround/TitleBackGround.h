@@ -23,8 +23,8 @@ private:
 	};
 
 	CUSTOMVERTEX m_Title[4];
-	float w_Width;
-	float w_Height;
+	float w_Width = 1280;
+	float w_Height = 720;
 	int m_TitleTexture;
 };
 

@@ -7,11 +7,11 @@
 
 ObjectManager::ObjectManager()
 {
-	m_pPlayer = new Player;
-	m_pObjectManagers.push_back(m_pPlayer);
-
-	m_pEnemy = new Enemy;
-	m_pObjectManagers.push_back(m_pEnemy);
+	//m_pPlayer = new Player;
+	//m_pObjectManagers.push_back(m_pPlayer);
+	//
+	//m_pEnemy = new Enemy;
+	//m_pObjectManagers.push_back(m_pEnemy);
 
 	m_pGameBackGround = new GameBackGround;
 	m_pObjectManagers.push_back(m_pGameBackGround);
@@ -47,5 +47,18 @@ void ObjectManager::Finalize()
 	for (auto itr = m_pObjectManagers.begin(); itr != m_pObjectManagers.end(); itr++)
 	{
 		(*itr)->Finalize();
+	}
+}
+
+void ObjectManager::Run()
+{
+	for (auto itr = m_pObjectManagers.begin(); itr != m_pObjectManagers.end(); itr++)
+	{
+		(*itr)->Update();
+	}
+
+	for (auto itr = m_pObjectManagers.begin(); itr != m_pObjectManagers.end(); itr++)
+	{
+		(*itr)->Draw();
 	}
 }

@@ -103,10 +103,10 @@ bool Application::CreateDirectGraphics()
 {
 	/*全画面表示ができない状態になっている */
 
-	DirectGraphics::CreateInstance(m_pMainWindow->GetWndHandle(), m_WindowWidth,m_WindowHeight,false);
+	DirectGraphics::CreateInstance(m_pMainWindow->GetWndHandle(),m_WindowHeight, m_WindowWidth,false);
 	if (!DirectGraphics::GetInstance()->Initialize())
 	{
-		//MessageBox(0, "ダイレクトグラフィックの作成に失敗しました", NULL, MB_OK);
+		MessageBox(0, "ダイレクトグラフィックの作成に失敗しました", NULL, MB_OK);
 		return false;
 	}
 
