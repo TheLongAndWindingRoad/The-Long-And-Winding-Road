@@ -67,16 +67,16 @@ bool GameBackGround::Initialize()
 	TextureManager::GetInstance()->LoadTexture("Texture//haikei.png", &m_BackGroundTexture);
 	TextureManager::GetInstance()->LoadTexture("Texture//kusa.png", &m_GrassTexture);
 
-	MapLoad("csv1.csv",  1);
-	MapLoad("csv2.csv",  2);
-	MapLoad("csv3.csv",  3);
-	MapLoad("csv4.csv",  4);
-	MapLoad("csv5.csv",  5);
-	MapLoad("csv6.csv",  6);
-	MapLoad("csv7.csv",  7);
-	MapLoad("csv8.csv",  8);
-	MapLoad("csv9.csv",  9);
-	MapLoad("csv10.csv",10);
+	MapLoad("csv//csv1.csv",  1);
+	MapLoad("csv//csv2.csv",  2);
+	MapLoad("csv//csv3.csv",  3);
+	MapLoad("csv//csv4.csv",  4);
+	MapLoad("csv//csv5.csv",  5);
+	MapLoad("csv//csv6.csv",  6);
+	MapLoad("csv//csv7.csv",  7);
+	MapLoad("csv//csv8.csv",  8);
+	MapLoad("csv//csv9.csv",  9);
+	MapLoad("csv//csv10.csv",10);
 
 	return true;
 }
@@ -309,13 +309,13 @@ void GameBackGround::MapLoad(const char* mapdata,int number)
 	FILE*  fp;
 	fopen_s(&fp, mapdata, "r");
 
-	int i = number;
+	int num = number;
 
 	for (int i = 0; i < Map_Height; i++)
 	{
 		for (int j = 0; j < Map_Width; j++)
 		{
-			switch (i)
+			switch (num)
 			{
 			case 1:
 				fscanf_s(fp, "%d,", &Initmap1[i][j], _countof(map1));
@@ -376,7 +376,7 @@ void GameBackGround::MapLoad(const char* mapdata,int number)
 
 void GameBackGround::BackGroundDraw()
 {
-	TextureManager::GetInstance()->SetTexture(m_BackGroundTexture);
+	TextureManager::GetInstance()->SetTexture(&m_BackGroundTexture);
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_BackGround1, sizeof(CUSTOMVERTEX));
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_BackGround2, sizeof(CUSTOMVERTEX));
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_BackGround3, sizeof(CUSTOMVERTEX));
@@ -384,7 +384,7 @@ void GameBackGround::BackGroundDraw()
 
 void GameBackGround::GrassDraw()
 {
-	TextureManager::GetInstance()->SetTexture(m_GrassTexture);
+	TextureManager::GetInstance()->SetTexture(&m_GrassTexture);
 
 	for (int i = 0; i < Map_Width; i++)
 	{

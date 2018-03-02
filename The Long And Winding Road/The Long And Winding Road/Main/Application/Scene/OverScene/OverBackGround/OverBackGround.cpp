@@ -48,6 +48,6 @@ void OverBackGround::Update()
 
 void OverBackGround::Draw()
 {
-	TextureManager::GetInstance()->SetTexture(m_OverTexture);
+	TextureManager::GetInstance()->SetTexture(&m_OverTexture);
 	DirectGraphics::GetInstance()->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_Over, sizeof(CUSTOMVERTEX));
 }

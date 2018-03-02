@@ -81,8 +81,9 @@ bool SceneManager::Update()
 		return true;
 
 		break;
-
 	}
+
+	return false;
 }
 
 bool SceneManager::AddScene(SceneBase* _pScene)
