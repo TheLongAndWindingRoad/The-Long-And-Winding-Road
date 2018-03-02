@@ -12,12 +12,11 @@ MouseDevice::MouseDevice(HWND hWnd) :m_hWnd(hWnd)
 
 MouseDevice::~MouseDevice()
 {
-	if (m_pDIMouse)
+	if (m_pDIMouse != NULL)
 	{
 		m_pDIMouse->Unacquire();
 	}
 	SafeRelease(m_pDIMouse);
-	DestroyMouseDevice();
 }
 
 
@@ -35,7 +34,7 @@ void MouseDevice::InitDinput()
 	}
 }
 
-bool MouseDevice::Initalize()
+bool MouseDevice::Initialize()
 {
 	/* ƒ}ƒEƒX‚Ì‰Šú‰» */
 	if (FAILED(m_pDinput->CreateDevice(

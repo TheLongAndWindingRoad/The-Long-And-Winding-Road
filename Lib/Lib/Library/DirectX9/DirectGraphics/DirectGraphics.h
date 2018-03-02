@@ -15,9 +15,10 @@ public:
 	~DirectGraphics();
 
 	static void CreateInstance(HWND hWnd, float h, float w,bool b);
+	static void DestroyInstance();
 
 	void SetRenderlingConfiguration();
-	bool Initalize();
+	bool Initialize();
 	void Finalize();
 	void BeginScene(int r, int g, int b);
 	void EndScene();
@@ -30,6 +31,8 @@ private:
 	LPDIRECT3D9 m_pDirect3D;
 	LPDIRECT3DDEVICE9 m_pD3Device;
 	D3DPRESENT_PARAMETERS m_D3dpp;
+	D3DPRESENT_PARAMETERS m_D3dppwnd;
+	D3DPRESENT_PARAMETERS m_D3dppfull;
 	D3DDISPLAYMODE		  m_D3DdisplayMode;
 	HWND m_hWnd;
 	float m_gWidth;
@@ -38,7 +41,6 @@ private:
 	void InitD3Dpp();
 
 	/* 隠しコンストラクタ */
-	DirectGraphics() {};
 	DirectGraphics(HWND hWnd,float h,float w,bool b);
 	/* DirectGraphics 唯一のインスタンス */
 	static DirectGraphics* pInstance;

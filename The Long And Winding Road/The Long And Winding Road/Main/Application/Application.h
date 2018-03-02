@@ -3,9 +3,6 @@
 
 #include"Windows\Windows.h"
 #include"DirectX9\SceneManager\SceneManager.h"
-#include"DirectX9\DirectGraphics\DirectGraphics.h"
-#include"MouseDevice\MouseDevice.h"
-#include"DirectX9\TextureManager\TextureManager.h"
 
 class ClearScene;
 class GameScene;
@@ -15,9 +12,18 @@ class OverScene;
 class Application
 {
 public:
+	enum SCENE_ID
+	{
+		TITLE_SCENE_ID,
+		GAME_SCENE_ID,
+		CLEAR_SCENE_ID,
+		OVER_SCENE_ID,
+		END_SCENE_ID
+	};
+	
 	Application();
 	~Application();
-	bool Initalize();
+	bool Initialize();
 	void Finalize();
 	void Run();
 	
@@ -54,11 +60,7 @@ private:
 	/* ƒNƒ‰ƒX */
 
 	Window* m_pMainWindow;
-	DirectGraphics* m_pDirectGraphics;
-	MouseDevice* m_pMouseDevice;
 	SceneManager* m_pSceneManager;
-	TextureManager* m_pTextureManager;
-
 	ClearScene* m_pClearScene;
 	GameScene*	m_pGameScene;
 	OverScene*	m_pOverScene;

@@ -53,7 +53,7 @@ public:
 		return m_NextSceneID;
 	}
 
-private:
+protected:
 	/* シーンの状態(種類) */
 	STATE m_State;
 	/* シーンのID */

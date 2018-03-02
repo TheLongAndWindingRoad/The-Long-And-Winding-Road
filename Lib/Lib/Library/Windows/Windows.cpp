@@ -34,7 +34,7 @@ Window::~Window()
 	Finalize();
 }
 
-bool Window::Initalize(LPCTSTR pWindowName, float windowWidth, float windowHeight)
+bool Window::Initialize(LPCTSTR pWindowName, float windowWidth, float windowHeight)
 {
 	//WindowÉNÉâÉXÇÃê›íË
 	WNDCLASSEX Wndclass;
@@ -65,7 +65,8 @@ bool Window::Initalize(LPCTSTR pWindowName, float windowWidth, float windowHeigh
 	m_hWnd = CreateWindow(
 		pWindowName,
 		pWindowName,
-		WS_OVERLAPPEDWINDOW | WS_VISIBLE,
+		WS_POPUP | WS_VISIBLE,
+		//WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 		0,
 		0,
 		windowWidth,

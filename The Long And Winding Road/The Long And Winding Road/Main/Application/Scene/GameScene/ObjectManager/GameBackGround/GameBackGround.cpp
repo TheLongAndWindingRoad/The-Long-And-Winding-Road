@@ -17,15 +17,32 @@ GameBackGround::~GameBackGround()
 {
 }
 
-bool GameBackGround::Initalize()
+bool GameBackGround::Initialize()
 {
 
-	CUSTOMVERTEX BackGround[]
+	CUSTOMVERTEX BackGround1[]
 	{
-		{ 0.f, 0.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
-		{ Width, 0.f, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
+		{	0.f,	-Height, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
+		{ Width,	-Height, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
+		{ Width,	0.f, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
+		{	0.f,	0.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
+	};
+
+	/* 最初に画面が表示される */
+	CUSTOMVERTEX BackGround2[]
+	{
+		{	0.f,	0.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
+		{ Width,	0.f, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
 		{ Width, Height, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
-		{ 0.f, Height, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
+		{	0.f, Height, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
+	};
+
+	CUSTOMVERTEX BackGround3[]
+	{
+		{	0.f,	Height, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
+		{ Width,	Height, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
+		{ Width,	Height + Height, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
+		{	0.f,	Height + Height, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
 	};
 
 	CUSTOMVERTEX Grass[]
@@ -38,16 +55,28 @@ bool GameBackGround::Initalize()
 
 	for (int i = 0; i < 4; i++)
 	{
-		/* 初期化の時のx,y座標が全部同じでいいのか */
-		/* y座標はずらす */
-		m_BackGround1[i] = BackGround[i];
-		m_BackGround2[i] = BackGround[i];
-		m_BackGround3[i] = BackGround[i];
+		m_BackGround1[i] = BackGround1[i];
+		m_BackGround2[i] = BackGround2[i];
+		m_BackGround3[i] = BackGround3[i];
 		/* 草の位置は別に変えなくてもいい */
 		m_Grass1[i] = Grass[i];
 		m_Grass2[i] = Grass[i];
 		m_Grass3[i] = Grass[i];
 	}
+
+	TextureManager::GetInstance()->LoadTexture("Texture//haikei.png", &m_BackGroundTexture);
+	TextureManager::GetInstance()->LoadTexture("Texture//kusa.png", &m_GrassTexture);
+
+	MapLoad("csv1.csv",  1);
+	MapLoad("csv2.csv",  2);
+	MapLoad("csv3.csv",  3);
+	MapLoad("csv4.csv",  4);
+	MapLoad("csv5.csv",  5);
+	MapLoad("csv6.csv",  6);
+	MapLoad("csv7.csv",  7);
+	MapLoad("csv8.csv",  8);
+	MapLoad("csv9.csv",  9);
+	MapLoad("csv10.csv",10);
 
 	return true;
 }
@@ -67,7 +96,7 @@ void GameBackGround::Update()
 		m_BackGround3[i].y += 5;
 	}
 
-	/* 下まで行った時の処理 */
+	/* 画面下まで行った時の処理 */
 	if (m_BackGround1[2].y > Height)
 	{
 		/* 余剰分の数字を入れている */
@@ -85,7 +114,7 @@ void GameBackGround::Update()
 		{
 			for (int j = 0; j < Map_Width; j++)
 			{
-				/* 乱数 */
+				/* 落ちてくるmapをランダムにしている */
 				switch (r)
 				{
 				case 1:
@@ -97,12 +126,32 @@ void GameBackGround::Update()
 				case 3:
 					map1[i][j] = Initmap3[i][j];
 					break;
+				case 4:
+					map1[i][j] = Initmap4[i][j];
+					break;
+				case 5:
+					map1[i][j] = Initmap5[i][j];
+					break;
+				case 6:
+					map1[i][j] = Initmap6[i][j];
+					break;
+				case 7:
+					map1[i][j] = Initmap7[i][j];
+					break;
+				case 8:
+					map1[i][j] = Initmap8[i][j];
+					break;;
+				case 9:
+					map1[i][j] = Initmap9[i][j];
+					break;
+				case 10:
+					map1[i][j] = Initmap10[i][j];
+					break;
 				}
 			}
 		}
 	}
 
-	// 2,3でも同じ処理をする
 	if (m_BackGround2[2].y > Height)
 	{
 		float tmp;
@@ -129,6 +178,27 @@ void GameBackGround::Update()
 					break;
 				case 3:
 					map2[i][j] = Initmap3[i][j];
+					break;
+				case 4:
+					map2[i][j] = Initmap4[i][j];
+					break;
+				case 5:
+					map2[i][j] = Initmap5[i][j];
+					break;
+				case 6:
+					map2[i][j] = Initmap6[i][j];
+					break;
+				case 7:
+					map2[i][j] = Initmap7[i][j];
+					break;
+				case 8:
+					map2[i][j] = Initmap8[i][j];
+					break;;
+				case 9:
+					map2[i][j] = Initmap9[i][j];
+					break;
+				case 10:
+					map2[i][j] = Initmap10[i][j];
 					break;
 				}
 			}
@@ -162,6 +232,27 @@ void GameBackGround::Update()
 				case 3:
 					map3[i][j] = Initmap3[i][j];
 					break;
+				case 4:
+					map3[i][j] = Initmap4[i][j];
+					break;
+				case 5:
+					map3[i][j] = Initmap5[i][j];
+					break;
+				case 6:
+					map3[i][j] = Initmap6[i][j];
+					break;
+				case 7:
+					map3[i][j] = Initmap7[i][j];
+					break;
+				case 8:
+					map3[i][j] = Initmap8[i][j];
+					break;;
+				case 9:
+					map3[i][j] = Initmap9[i][j];
+					break;
+				case 10:
+					map3[i][j] = Initmap10[i][j];
+					break;
 				}
 			}
 		}
@@ -170,19 +261,41 @@ void GameBackGround::Update()
 	/* マウスとMaptipの当たり判定 */
 	MOUSEKIND mouse;
 	MouseDevice::GetpInstance()->MouseCheck(&mouse);
-	int mouse_x = MouseDevice::GetpInstance()->GetMousePos().x / TipsizeWidth;
-	int mouse_y = MouseDevice::GetpInstance()->GetMousePos().y / TipsizeHeight;
 
-	/* カーソルが1,2,3の何処にいるか確認する */
-	if ((mouse_y > m_BackGround1[0].y) && (mouse_y < m_BackGround1[2].y))
+	if (mouse.IsLeftClick)
 	{
-		/* ここの0もみて草かどうかわかるように */
-		if (map1[mouse_y][mouse_x] == 0)
+		/* ここは切り捨てて大丈夫なのか */
+		int mouse_x = MouseDevice::GetpInstance()->GetMousePos().x / TipsizeWidth;
+		int mouse_y = MouseDevice::GetpInstance()->GetMousePos().y / TipsizeHeight;
+
+		/* カーソルが1,2,3の何処にいるか確認する */
+		/* map1 */
+		if ((mouse_y > m_BackGround1[0].y) && (mouse_y < m_BackGround1[2].y))
 		{
-			map1[mouse_y][mouse_x] = 1;
+			if (map1[mouse_y][mouse_x] == Grass)
+			{
+				map1[mouse_y][mouse_x] = road;
+			}
+		}
+
+		/* map2 */
+		if ((mouse_y > m_BackGround2[0].y) && (mouse_y < m_BackGround2[2].y))
+		{
+			if (map2[mouse_y][mouse_x] == Grass)
+			{
+				map2[mouse_y][mouse_x] = road;
+			}
+		}
+
+		/* map3 */
+		if ((mouse_y > m_BackGround3[0].y) && (mouse_y < m_BackGround3[2].y))
+		{
+			if (map3[mouse_y][mouse_x] == Grass)
+			{
+				map3[mouse_y][mouse_x] = road;
+			}
 		}
 	}
-	
 }
 
 void GameBackGround::Draw()
@@ -233,6 +346,27 @@ void GameBackGround::MapLoad(const char* mapdata,int number)
 						map3[i][j] = Initmap3[i][j];
 					}
 				}
+				break;
+			case 4:
+				fscanf_s(fp, "%d,", &Initmap4[i][j], _countof(map3));
+				break;
+			case 5:
+				fscanf_s(fp, "%d,", &Initmap5[i][j], _countof(map3));
+				break;
+			case 6:
+				fscanf_s(fp, "%d,", &Initmap6[i][j], _countof(map3));
+				break;
+			case 7:
+				fscanf_s(fp, "%d,", &Initmap7[i][j], _countof(map3));
+				break;
+			case 8:
+				fscanf_s(fp, "%d,", &Initmap8[i][j], _countof(map3));
+				break;
+			case 9:
+				fscanf_s(fp, "%d,", &Initmap9[i][j], _countof(map3));
+				break;
+			case 10:
+				fscanf_s(fp, "%d,", &Initmap10[i][j], _countof(map3));
 				break;
 			}
 		}

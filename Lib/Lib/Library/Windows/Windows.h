@@ -9,7 +9,7 @@ class Window
 public:
 	Window();
 	~Window();
-	bool Initalize(LPCTSTR pWindowName, float windowWidth, float windowHeight);
+	bool Initialize(LPCTSTR pWindowName, float windowWidth, float windowHeight);
 	void Finalize();
 	bool Update();
 	inline HWND GetWndHandle() const { return m_hWnd; }

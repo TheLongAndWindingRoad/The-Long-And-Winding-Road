@@ -10,7 +10,7 @@ public:
 
 	GameBackGround();
 	virtual ~GameBackGround();
-	virtual bool Initalize();
+	virtual bool Initialize();
 	virtual void Finalize();
 	virtual void Update();
 	virtual void Draw();
@@ -36,12 +36,18 @@ private:
 		FLOAT	tu, tv;
 	};
 
+	/* define ‘@1 “¹ 0 */
+	const int Grass = 1;
+	const int road = 0;
+
 	/* Maptip‚Ì” */
 	static const int Map_Width = 13;
 	static const int Map_Height = 26;
+
 	/* ”wŒi‚Ì‘å‚«‚³ */
 	const float Width  = 650;
 	const float Height = 650;
+
 	/* Maptip‚Ì‘å‚«‚³ */
 	const float TipsizeWidth = 50;
 	const float TipsizeHeight = 25;
@@ -56,6 +62,13 @@ private:
 	int Initmap1[Map_Height][Map_Width];
 	int Initmap2[Map_Height][Map_Width];
 	int Initmap3[Map_Height][Map_Width];
+	int Initmap4[Map_Height][Map_Width];
+	int Initmap5[Map_Height][Map_Width];
+	int Initmap6[Map_Height][Map_Width];
+	int Initmap7[Map_Height][Map_Width];
+	int Initmap8[Map_Height][Map_Width];
+	int Initmap9[Map_Height][Map_Width];
+	int Initmap10[Map_Height][Map_Width];
 
 	/* ”wŒi‚Ì”Ô† */
 	int m_BackGroundTexture;

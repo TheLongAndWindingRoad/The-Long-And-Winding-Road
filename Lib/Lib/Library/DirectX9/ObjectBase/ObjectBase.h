@@ -13,7 +13,7 @@ public:
 	virtual ~ObjectBase() {};
 
 	/* ‰Šú‰»ŠÖ” */
-	virtual bool Initalize() = 0;
+	virtual bool Initialize() = 0;
 
 	/* I—¹ŠÖ” */
 	virtual void Finalize() = 0;

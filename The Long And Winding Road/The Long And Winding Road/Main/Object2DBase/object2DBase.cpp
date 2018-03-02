@@ -1,6 +1,6 @@
 #include"object2DBase.h"
 
-bool Object2DBase::Initalize()
+bool Object2DBase::Initialize()
 {
 	return true;
 }

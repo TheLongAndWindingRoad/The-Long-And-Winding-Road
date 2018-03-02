@@ -60,10 +60,23 @@
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\CreateRoaad\CreateRoad.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\UIBase\UIBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\HpUI\HpUI.cpp">
+=======
+    <ClCompile Include="Main\Application\Scene\GameScene\Animation\Animation.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ClearScene\ClearBackGround\ClearBackGround.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\OverScene\OverBackGround\OverBackGround.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleBackGround\TitleBackGround.cpp">
+>>>>>>> origin/main
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,10 +123,23 @@
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\CreateRoaad\CreateRoaad.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\UIBase\UIBase.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\HpUI\HpUI.h">
+=======
+    <ClInclude Include="Main\Application\Scene\GameScene\Animation\Animation.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ClearScene\ClearBackGround\ClearBackGround.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\OverScene\OverBackGround\OverBackGround.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleBackGround\TitleBackGround.h">
+>>>>>>> origin/main
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
