@@ -64,9 +64,18 @@ bool GameBackGround::Initialize()
 		m_Grass3[i] = Grass[i];
 	}
 
-	TextureManager::GetInstance()->LoadTexture("Texture//haikei.png", &m_BackGroundTexture);
-	TextureManager::GetInstance()->LoadTexture("Texture//kusa.png", &m_GrassTexture);
+	if (!TextureManager::GetInstance()->LoadTexture("Texture/haikei.png", &m_BackGroundTexture))
+	{
+		MessageBox(0, "‰æ‘œ‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½", NULL, MB_OK);
+		return false;
+	}
 
+	if (!TextureManager::GetInstance()->LoadTexture("Texture/kusa.png", &m_GrassTexture))
+	{
+		MessageBox(0, "‰æ‘œ‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½", NULL, MB_OK);
+		return false;
+	}
+	
 	MapLoad("csv//csv1.csv",  1);
 	MapLoad("csv//csv2.csv",  2);
 	MapLoad("csv//csv3.csv",  3);

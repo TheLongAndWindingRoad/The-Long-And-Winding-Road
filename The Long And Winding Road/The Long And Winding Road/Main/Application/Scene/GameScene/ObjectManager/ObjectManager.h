@@ -17,6 +17,7 @@ public:
 	bool Initialize();
 	void Finalize();
 	/* Run関数も必要 */
+	void Run();
 	/* collision関数も必要 */
 private:
 	/* オブジェクトの格納するコンテナ */

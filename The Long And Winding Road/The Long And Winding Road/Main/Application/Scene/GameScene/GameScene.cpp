@@ -43,6 +43,6 @@ void GameScene::Finalize()
 void GameScene::Update()
 {
 	DirectGraphics::GetInstance()->BeginScene(r, g, b);
-	/* ‚±‚±‚ÉObjectManager‚ÌUpdateŠÖ”‚ðŒÄ‚Ô */
+	m_pObjectManager->Run();
 	DirectGraphics::GetInstance()->EndScene();
 }
