@@ -60,6 +60,12 @@
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\CreateRoaad\CreateRoad.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\UIBase\UIBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\HpUI\HpUI.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Object2DBase\object2DBase.h">
@@ -102,6 +108,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\UIManager\CreateRoaad\CreateRoaad.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\UIBase\UIBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\HpUI\HpUI.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
