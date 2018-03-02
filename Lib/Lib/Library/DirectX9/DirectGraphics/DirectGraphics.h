@@ -15,6 +15,7 @@ public:
 	~DirectGraphics();
 
 	static void CreateInstance(HWND hWnd, float h, float w,bool b);
+	static void DestroyInstance();
 
 	void SetRenderlingConfiguration();
 	bool Initialize();

@@ -12,12 +12,11 @@ MouseDevice::MouseDevice(HWND hWnd) :m_hWnd(hWnd)
 
 MouseDevice::~MouseDevice()
 {
-	if (m_pDIMouse)
+	if (m_pDIMouse != NULL)
 	{
 		m_pDIMouse->Unacquire();
 	}
 	SafeRelease(m_pDIMouse);
-	DestroyMouseDevice();
 }
 
 

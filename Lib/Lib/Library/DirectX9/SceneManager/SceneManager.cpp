@@ -14,10 +14,15 @@ SceneManager::SceneManager() :	m_pCurrentScene(nullptr)
 SceneManager::~SceneManager()
 {
 	/* シーンが残っていたら削除する */
-	for (auto itr = m_pSceneDate.begin(); itr != m_pSceneDate.end(); itr++)
-	{
-		SafeDelete(*itr);
-	}
+	/* 中のリストをこうしんしないといけない */
+	//for (auto itr = m_pSceneDate.begin(); itr != m_pSceneDate.end(); itr++)
+	//{
+	//	if (itr != m_pSceneDate.end())
+	//	{
+	//		m_pSceneDate.erase();
+	//	}
+	//	SafeDelete(*itr);
+	//}
 }
 
 bool SceneManager::Initialize()

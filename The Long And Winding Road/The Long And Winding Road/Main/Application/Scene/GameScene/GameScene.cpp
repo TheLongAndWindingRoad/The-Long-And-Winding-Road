@@ -38,6 +38,8 @@ void GameScene::Finalize()
 	m_State = INIT_STATE;
 }
 
+
+/* ƒQ[ƒ€ƒV[ƒ“‚Ì‘JˆÚæ‚Íã‚ª‚Á‚Ä‚«‚Ä‚©‚ç‚Ì”»’è‚Åˆ—‚ð‚·‚é */
 void GameScene::Update()
 {
 	DirectGraphics::GetInstance()->BeginScene(r, g, b);

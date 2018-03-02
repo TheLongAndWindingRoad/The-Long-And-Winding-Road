@@ -12,7 +12,6 @@ DirectGraphics::DirectGraphics(HWND hWnd,float h,float w,bool b):m_hWnd(hWnd),m_
 
 DirectGraphics::~DirectGraphics()
 {
-	Finalize();
 }
 
 void DirectGraphics::CreateInstance(HWND hWnd, float h, float w,bool b)
@@ -20,6 +19,14 @@ void DirectGraphics::CreateInstance(HWND hWnd, float h, float w,bool b)
 	if (pInstance == NULL)
 	{
 		pInstance = new DirectGraphics(hWnd,h,w,b);
+	}
+}
+
+void DirectGraphics::DestroyInstance()
+{
+	if (pInstance != nullptr)
+	{
+		SafeDelete(pInstance);
 	}
 }
 
@@ -48,12 +55,28 @@ void DirectGraphics::InitD3Dpp()
 	ZeroMemory(&m_D3dppfull, sizeof(D3DPRESENT_PARAMETERS));
 	m_D3dppfull.BackBufferWidth = m_gWidth;			// 幅
 	m_D3dppfull.BackBufferHeight = m_gHeight;			// 高さ
+	//m_D3dppfull.BackBufferFormat = m_D3DdisplayMode.Format;
+	//m_D3dppfull.BackBufferCount = 1;				// バックバッファの数
+	//m_D3dppfull.SwapEffect = D3DSWAPEFFECT_DISCARD;
+	//m_D3dppfull.hDeviceWindow = m_hWnd;			// 表示目標ウィンドウ(貼り付け対象のウィンドウハンドルを入れてください)
+	//m_D3dppfull.Windowed = FALSE;			// フルスクリーンを指定
+	//m_D3dppfull.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT;
+	//m_D3dppfull.EnableAutoDepthStencil = TRUE;
+	//m_D3dppfull.AutoDepthStencilFormat = D3DFMT_D24S8;
+
 	m_D3dppfull.BackBufferFormat = m_D3DdisplayMode.Format;
-	m_D3dppfull.BackBufferCount = 1;				// バックバッファの数
+	m_D3dppfull.BackBufferCount = 1;
+	m_D3dppfull.MultiSampleType = D3DMULTISAMPLE_NONE;
+	m_D3dppfull.MultiSampleQuality = 0;
 	m_D3dppfull.SwapEffect = D3DSWAPEFFECT_DISCARD;
-	m_D3dppfull.hDeviceWindow = m_hWnd;			// 表示目標ウィンドウ(貼り付け対象のウィンドウハンドルを入れてください)
-	m_D3dppfull.Windowed = FALSE;			// フルスクリーンを指定
-	m_D3dppfull.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT;
+	m_D3dppfull.hDeviceWindow = m_hWnd;
+	m_D3dppfull.Windowed = FALSE;
+	m_D3dppfull.EnableAutoDepthStencil = FALSE;
+	m_D3dppfull.AutoDepthStencilFormat = D3DFMT_A1R5G5B5;
+	m_D3dppfull.Flags = 0;
+	m_D3dppfull.FullScreen_RefreshRateInHz = 0;
+	m_D3dppfull.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
+
 
 	m_D3dpp = m_fullscreen ? m_D3dppfull : m_D3dppwnd;
 }
@@ -100,10 +123,6 @@ bool DirectGraphics::Initialize()
 
 void DirectGraphics::Finalize()
 {
-	if (pInstance != nullptr)
-	{
-		SafeDelete(pInstance);
-	}
 	SafeRelease(m_pD3Device);
 	SafeRelease(m_pDirect3D);
 }

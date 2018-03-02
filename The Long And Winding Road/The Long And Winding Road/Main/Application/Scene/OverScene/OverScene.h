@@ -15,6 +15,10 @@ public:
 	virtual void Update();
 private:
 	OverBackGround* m_pOverBackGround;
+
+	int r = 0;
+	int g = 0;
+	int b = 0;
 };
 
 #endif

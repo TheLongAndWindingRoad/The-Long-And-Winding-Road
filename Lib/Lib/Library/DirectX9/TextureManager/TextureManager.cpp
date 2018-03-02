@@ -10,7 +10,6 @@ TextureManager::TextureManager()
 
 TextureManager::~TextureManager()
 {
-	DestroyInstance();
 }
 
 void TextureManager::CreateInstance()
@@ -23,7 +22,12 @@ void TextureManager::CreateInstance()
 
 void TextureManager::DestroyInstance()
 {
-	SafeDelete(pInstance);
+	if (pInstance != NULL)
+	{
+		delete pInstance;
+		pInstance = nullptr;
+	}
+
 }
 
 //Object‚Í©•ª‚ÌID‚ğ‚Â‚±‚Æ

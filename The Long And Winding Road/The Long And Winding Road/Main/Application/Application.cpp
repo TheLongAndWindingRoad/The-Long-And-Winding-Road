@@ -172,6 +172,7 @@ void Application::DestroyDirectGraphics()
 	if (DirectGraphics::GetInstance() != nullptr) 
 	{
 		DirectGraphics::GetInstance()->Finalize();
+		DirectGraphics::GetInstance()->DestroyInstance();
 	}
 }
 
