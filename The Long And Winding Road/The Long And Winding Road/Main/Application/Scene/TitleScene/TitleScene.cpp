@@ -52,6 +52,6 @@ void TitleScene::Update()
 		m_NextSceneID = Application::GAME_SCENE_ID;
 	}
 	DirectGraphics::GetInstance()->BeginScene(r, g, b);
-	m_pTitleBackGround->Update();
+	m_pTitleBackGround->Draw();
 	DirectGraphics::GetInstance()->EndScene();
 }

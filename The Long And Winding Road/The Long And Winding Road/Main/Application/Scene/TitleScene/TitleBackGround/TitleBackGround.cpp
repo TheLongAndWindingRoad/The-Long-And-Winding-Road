@@ -30,7 +30,7 @@ bool TitleBackGround::Initialize()
 
 
 	/* ファイルの名前を入れる */
-	TextureManager::GetInstance()->LoadTexture("", &m_TitleTexture);
+	TextureManager::GetInstance()->LoadTexture("Texture//window.png", &m_TitleTexture);
 
 	return true;
 }
